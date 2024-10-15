@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "34892f8f-d4db-43a3-917e-91ef0b5feb39",
+		"name": "Private_Key_JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31028691"
+	},
+	"item": [
+		{
+			"name": "Get Assertion JWT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/assertion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"assertion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get books",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9090/assertion",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "test token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9191/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get OAuth Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0LXBydi1rZXktand0LWNsaWVudCIsInN1YiI6InRlc3QtcHJ2LWtleS1qd3QtY2xpZW50IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9zdWJoYW5taXNocmEvcHJvdG9jb2wvb3BlbmlkLWNvbm5lY3QvdG9rZW4iLCJqdGkiOiIyNjBmMjc0NS0zYzI1LTQ0YjktODA1Ny1jMjE2YzE3YmM2Y2YiLCJpYXQiOjE3Mjg5MTUyOTIsImV4cCI6MTcyODkxNTU5Mn0.UlNCRnFpw0V5O0JmfJGYUm6t_JsUU10vmj5x23BYDPUN6AKVkIoadQBHJsJc4p0K9FcwXPRZSD4gSa2_Y4B4MEA3ZllWSvup1ZSkQmYJIEpO4r5EQAS8Yp27yBNldEnklmlM9eJVRP1Q3GYel9Rd910wrtiw8W0Bsb5S7RLVkO1X7wNU15DrmTWT1sMF2TsIs6gTLePzw_q1mdxxi4xYXS1AD_XsPCeoKOuVeRk4CdmdOFE0TouuVrltuOUH95wMLLugz5LJjXpgCkhgU7CIIvOgdxzIFJx5ppNAHzfd6V1rgFUl-NUhJWMYBzh1BtqvlM6wydi5hq5L6GIAfF_BeQ",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/subhanmishra/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"subhanmishra",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9090/assertion",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "test token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9191/book/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
